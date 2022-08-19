@@ -1,9 +1,9 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import { usersApi } from "./api";
+import { postsApi } from "./api";
 
 export const store = configureStore({
     reducer: {
-        [usersApi.reducerPath]: usersApi.reducer,
+        [postsApi.reducerPath]: postsApi.reducer,
     },
-    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(usersApi.middleware),
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(postsApi.middleware),
 })

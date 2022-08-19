@@ -1,9 +1,9 @@
 import React from 'react';
-import { useUsersQuery } from './api';
+import { usePostsQuery } from './api';
 import './App.css';
 
 function App() {
-  const {data,error,isLoading,isFetching,isSuccess} = useUsersQuery();
+  const {data,error,isLoading,isFetching,isSuccess} = usePostsQuery();
   console.log(data)
   return (
     <div className="App">
@@ -13,7 +13,7 @@ function App() {
       {error && <h2>Error occurred at fetching the data</h2>}
       {isSuccess && 
         <ul>
-          {data.map(user => <li>{user.name} {user.email}</li>)}
+          {data.map(post => <li key={post.id}><strong>{post.title} :</strong> {post.body}</li>)}
         </ul>
       }
     </div>
